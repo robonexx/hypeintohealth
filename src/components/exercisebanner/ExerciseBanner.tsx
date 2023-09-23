@@ -1,17 +1,18 @@
 import React from 'react';
 import IMG from 'svg/workout2.svg';
-import IMG2 from 'svg/workout1.svg';
+import IMG2 from 'svg/movement.svg';
+import IMG3 from 'svg/stability.svg';
 
 const ExerciseBanner: React.FC = () => {
   return (
     <section className='container mx-auto px-6 py-10 lg:px-40'>
-      <h2 className='text-4xl font-bold text-center text-gray-800 mb-40'>
-        Welcome to BETTER HEALTH
-      </h2>
       <div className='flex items-center justify-between flex-wrap mb-40'>
+        <div className='w-full md:w-2/6 p-8 md:p-4'>
+          <img src={IMG3} alt='Monitoring' />
+        </div>
         <div className='w-full md:w-1/2'>
           <h4 className='text-2xl lg:text-3xl text-gray-800 font-bold mb-3'>
-            Your help online to start working out
+            Your help online
           </h4>
           <p className='text-gray-600 mb-8'>
             Whether you're taking your first steps into the world of exercise or
@@ -21,9 +22,6 @@ const ExerciseBanner: React.FC = () => {
             your brighter, healthier future.
           </p>
         </div>
-        <div className='w-full md:w-2/6 p-8 md:p-4'>
-          <img src={IMG} alt='Monitoring' />
-        </div>
       </div>
       <div className='flex items-center justify-between flex-wrap mb-40'>
         <div className='w-full md:w-1/2'>
@@ -31,9 +29,10 @@ const ExerciseBanner: React.FC = () => {
             Where to begin?
           </h4>
           <p className='text-gray-600 mb-8'>
-            We recommend to just begin right where you stand. Are you at you
-            home? well we got the perfect set of exercises to get you started
-            And as you progress you can change the exercise catergory
+            Wondering where to start? We suggest beginning right where you are,
+            whether you're at home or anywhere else. We have a tailored set of
+            exercises that are perfect for beginners, and as you advance, you
+            can explore different exercise categories to keep things exciting.
           </p>
         </div>
         <div className='w-full md:w-2/6 p-8 md:p-4'>
@@ -46,15 +45,15 @@ const ExerciseBanner: React.FC = () => {
         </div>
         <div className='w-full md:w-1/2'>
           <h4 className='text-2xl lg:text-3xl text-gray-800 font-bold mb-3'>
-            Here is three exercise lists to help you get started
+            To help you get started
           </h4>
           <p className='text-gray-600 mb-8'>
-            All you got to do now is... start working out, its not how much you
-            do. Everystep is a progress! remember that Take 1 - 5 exercises and
-            then start adding up as you go.
-            <br />
-            <br />
-            Rememeber! NO Rush! we keep going ;)
+            Here are three exercise lists to kickstart your fitness journey. The
+            key is to simply start working out; it's not about the quantity but
+            the consistency. Every step you take is progress, so keep that in
+            mind. Begin with 1 - 5 exercises, and gradually add more as you go
+            along. And remember, there's no need to rush; we're in this for the
+            long haul! Keep pushing forward 😉.
           </p>
         </div>
       </div>

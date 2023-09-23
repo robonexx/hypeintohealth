@@ -3,14 +3,14 @@ import { motion } from 'framer-motion';
 
 const wrapperVariant = {
   hidden: {
-    opacity: '0', 
+    opacity: '0',
   },
   visible: {
-    opacity: 1, 
+    opacity: 1,
     transition: {
       delay: 0.5,
-      when: 'beforeChildren', 
-      staggerChildren: 0.2, 
+      when: 'beforeChildren',
+      staggerChildren: 0.2,
     },
   },
 };
@@ -46,15 +46,15 @@ const MenuBtn: React.FC<MenuBtnProps> = ({ active, setActive }) => {
       onClick={() => onClickHandler()}
     >
       <motion.div
-        className={`hamburger ${active ? 'active' : ''}`}
+        className={`hamburger ${active ? 'active' : ''} HAMBURGER-ICON space-y-2`}
         id='hamburger'
         variants={wrapperVariant}
         initial='hidden'
         animate='visible'
       >
-        <motion.span variants={itemVariant}></motion.span>
-        <motion.span variants={itemVariant}></motion.span>
-        <motion.span variants={itemVariant}></motion.span>
+        <span className='block h-0.5 w-8 animate-pulse bg-gray-600'></span>
+        <span className='block h-0.5 w-8 animate-pulse bg-gray-600'></span>
+        <span className='block h-0.5 w-8 animate-pulse bg-gray-600'></span>
       </motion.div>
     </div>
   );
