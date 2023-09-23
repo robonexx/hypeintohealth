@@ -29,11 +29,11 @@ const ExerciseList: React.FC = () => {
   };
 
   return (
-    <div className='container mx-auto px-6 p-10'>
-      <h4 className='text-3xl text-gray-800 font-bold mb-3 text-center'>
+    <div className='container mx-auto px-4 p-10'>
+      <h4 className='text-2xl md:text-3xl text-gray-800 font-bold mb-3 text-center'>
         Exercises
       </h4>
-      <section className='w-full mx-auto flex items-center justify-center'>
+      <section className='w-full mx-auto flex flex-col md:flex-row items-center justify-center'>
         <Button title='Beginner' onClick={() => handleButtonClick('beginner')} />
         <Button title='Intermediate' onClick={() => handleButtonClick('intermediate')} />
         <Button title='Advanced' onClick={() => handleButtonClick('advanced')} />

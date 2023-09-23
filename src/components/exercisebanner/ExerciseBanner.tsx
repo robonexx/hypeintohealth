@@ -4,13 +4,13 @@ import IMG2 from 'svg/workout1.svg';
 
 const ExerciseBanner: React.FC = () => {
   return (
-    <section className='container mx-auto px-6 p-10 lg:px-40'>
+    <section className='container mx-auto px-6 py-10 lg:px-40'>
       <h2 className='text-4xl font-bold text-center text-gray-800 mb-40'>
         Welcome to BETTER HEALTH
       </h2>
       <div className='flex items-center justify-between flex-wrap mb-40'>
         <div className='w-full md:w-1/2'>
-          <h4 className='text-3xl text-gray-800 font-bold mb-3'>
+          <h4 className='text-2xl lg:text-3xl text-gray-800 font-bold mb-3'>
             Your help online to start working out
           </h4>
           <p className='text-gray-600 mb-8'>
@@ -27,7 +27,7 @@ const ExerciseBanner: React.FC = () => {
       </div>
       <div className='flex items-center justify-between flex-wrap mb-40'>
         <div className='w-full md:w-1/2'>
-          <h4 className='text-3xl text-gray-800 font-bold mb-3'>
+          <h4 className='text-2xl lg:text-3xl text-gray-800 font-bold mb-3'>
             Where to begin?
           </h4>
           <p className='text-gray-600 mb-8'>
@@ -45,7 +45,7 @@ const ExerciseBanner: React.FC = () => {
           <img src={IMG2} alt='Monitoring' />
         </div>
         <div className='w-full md:w-1/2'>
-          <h4 className='text-3xl text-gray-800 font-bold mb-3'>
+          <h4 className='text-2xl lg:text-3xl text-gray-800 font-bold mb-3'>
             Here is three exercise lists to help you get started
           </h4>
           <p className='text-gray-600 mb-8'>
