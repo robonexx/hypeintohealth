@@ -36,7 +36,7 @@ export default function Header() {
                 <line x1='6' y1='6' x2='18' y2='18' />
               </svg>
             </div>
-            <ul className='MENU-LINK-MOBILE-OPEN flex flex-col items-center justify-between min-h-[250px]'>
+            <ul className='MENU-LINK-MOBILE-OPEN flex flex-col items-center justify-between min-h-96 transition-all duration-500'>
               <a href='/' className='self-center text-4xl my-16'>
                 <Logo title='Hype Into Health' />
               </a>
