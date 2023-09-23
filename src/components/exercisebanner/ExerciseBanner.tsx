@@ -25,24 +25,21 @@ const ExerciseBanner: React.FC = () => {
           <img src={IMG} alt='Monitoring' />
         </div>
       </div>
-      <div className='flex flex-col-reverse md:flex-row items-center justify-between flex-wrap mb-40'>
+      <div className='flex flex-col-reverse md:flex-row items-center justify-between flex-wrap mb-20'>
         <div className='w-full md:w-2/6 p-8 md:p-4'>
           <img src={IMG2} alt='Monitoring' />
         </div>
         <div className='w-full md:w-1/2'>
           <h4 className='text-3xl text-gray-800 font-bold mb-3'>
-            Plan your exercises
+            Here is three exercise lists to help you get started
           </h4>
           <p className='text-gray-600 mb-8'>
-            This training exercise planner provides a great way to begin your
-            road to feeling better. You have the flexibility to select exercises
-            that suit your preferences or opt for random ones. It's all about
-            keeping your workouts engaging and tailored to your needs while you
-            journey towards a healthier, more energized self. With this
-            adaptable approach, exercise becomes an enjoyable adventure, and
-            you're more likely to stick with it for the long term. Start today
-            and experience the uplifting benefits of a personalized exercise
-            routine.
+            All you got to do now is... start working out, its not how much you
+            do. Everystep is a progress! remember that Take 1 - 5 exercises and
+            then start adding up as you go.
+            <br />
+            <br />
+            Rememeber! NO Rush! we keep going ;)
           </p>
         </div>
       </div>
