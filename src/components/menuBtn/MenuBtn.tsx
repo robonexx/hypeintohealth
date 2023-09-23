@@ -3,14 +3,14 @@ import { motion } from 'framer-motion';
 
 const wrapperVariant = {
   hidden: {
-    opacity: '-100vw', // move out of the site
+    opacity: '0', 
   },
   visible: {
-    opacity: 0, // bring it back to normal
+    opacity: 1, 
     transition: {
       delay: 0.5,
-      when: 'beforeChildren', // use this instead of delay
-      staggerChildren: 0.2, // apply stagger on the parent tag
+      when: 'beforeChildren', 
+      staggerChildren: 0.2, 
     },
   },
 };
