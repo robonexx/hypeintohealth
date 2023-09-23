@@ -6,16 +6,6 @@ interface ExerciseCardProps {
   id: number;
 }
 
-/* 
-Intermediate routine
-If you’ve mastered the beginner routine, you’re ready to take on these intermediate moves.
-
-Complete 2 sets of 10 to 15 reps of each exercise below, then move on to the next after 1 minute of rest.
-
-An alternative, more advanced approach is to complete timed rounds. For instance, complete 1 minute of each exercise and repeat the circuit twice.
-
-Compete against yourself to get just 1 or 2 more reps each time you complete the routine.
-*/
 
 const ExerciseCard: React.FC<ExerciseCardProps> = ({ name, description }) => {
   const [showDescription, setShowDescription] = useState(false);
