@@ -6,7 +6,7 @@ const ExerciseBanner: React.FC = () => {
   return (
     <section className='container mx-auto px-6 p-10 lg:px-40'>
       <h2 className='text-4xl font-bold text-center text-gray-800 mb-40'>
-        Welcome to better helth
+        Welcome to BETTER HEALTH
       </h2>
       <div className='flex items-center justify-between flex-wrap mb-40'>
         <div className='w-full md:w-1/2'>
