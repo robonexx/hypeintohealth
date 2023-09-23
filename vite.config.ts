@@ -9,7 +9,8 @@ export default defineConfig({
       src: "/src",
       component: "/src/components/",
       assets: "/src/assets/",
-      images: "/src/assets/images/"
+      images: "/src/assets/images/",
+      svg: "/src/assets/svg/"
     },
   },
 })
