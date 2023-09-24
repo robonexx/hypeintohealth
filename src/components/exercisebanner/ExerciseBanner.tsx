@@ -54,6 +54,8 @@ const ExerciseBanner: React.FC = () => {
             mind. Begin with 1 - 5 exercises, and gradually add more as you go
             along. And remember, there's no need to rush; we're in this for the
             long haul! Keep pushing forward 😉.
+
+            If you want to create your own routine from the existing lists you can do so here... <a href='/planner' className='text-indigo-500'>Routine planner</a>
           </p>
         </div>
       </div>
