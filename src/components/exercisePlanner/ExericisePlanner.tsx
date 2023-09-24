@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { PiFolderPlus } from 'react-icons/pi';
+import React, { useState, useEffect } from 'react';
+import { PiFolderPlus, PiTrashLight } from 'react-icons/pi';
 import IMGT from 'svg/tracker.svg';
 import { getRandomExercises } from '../../utils/shuffleExercises';
 import {
@@ -15,11 +15,11 @@ import ExerciseCard from '../exercisecard/ExerciseCard';
 // 2 make it possible to search in the exercises
 // 3 create a function so that the user can pick exercises to create their own list
 // 4 output the users own training list
+// add and remove exercise
 
 const ExercisePlanner: React.FC = () => {
   const [num, setNum] = useState(1);
-  const [myList, setMyList] = useState([]);
-  const [filtered, setFiltered] = useState([])
+  const [myList, setMyList] = useState<Exercise[]>([]);
   const allExercises = [
     ...exercises,
     ...intermediateExercises,
@@ -36,6 +36,25 @@ const ExercisePlanner: React.FC = () => {
     exercise.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  const addExercise = (exercise: Exercise) => {
+    // Add the exercise to the myList state
+    setMyList([...myList, exercise]);
+
+    // Store the updated myList in local storage
+    localStorage.setItem('myList', JSON.stringify([...myList, exercise]));
+  };
+
+  const handleRemoveFromMyList = (exerciseId: number) => {
+    // Remove the exercise from state (myList)
+    setMyList((prevMyList) =>
+      prevMyList.filter((item) => item.id !== exerciseId)
+    );
+
+    // Remove the exercise from local storage
+    const updatedLocalStorage = myList.filter((item) => item.id !== exerciseId);
+    localStorage.setItem('myList', JSON.stringify(updatedLocalStorage));
+  };
+
   // trying if this function works
   const array1: Exercise[] = exercises;
 
@@ -44,6 +63,14 @@ const ExercisePlanner: React.FC = () => {
   const numOfExercises = 7;
 
   const randomList = getRandomExercises(numOfExercises, array1, array2);
+
+  useEffect(() => {
+    // Retrieve the user's list from local storage
+    const storedMyList = localStorage.getItem('myList');
+    if (storedMyList) {
+      setMyList(JSON.parse(storedMyList));
+    }
+  }, []);
 
   return (
     <section className='container mx-auto px-6 p-10 lg:px-40'>
@@ -68,6 +95,26 @@ const ExercisePlanner: React.FC = () => {
           </p>
         </div>
       </div>
+      <section>
+        <h2>Exercise routine</h2>
+        <div>
+          {myList.map((exercise: Exercise) => (
+            <div key={exercise.id} className='flex'>
+              <ExerciseCard
+                name={exercise.name}
+                description={exercise.description}
+                id={exercise.id}
+              />
+              <button
+                className='w-1/4 text-red-600 text-xl md:text-2xl cursor-pointer px-4 bg-white grid place-content-center border-b-2 hover:bg-red-200'
+                onClick={() => handleRemoveFromMyList(exercise.id)}
+              >
+                <PiTrashLight />
+              </button>
+            </div>
+          ))}
+        </div>
+      </section>
       <section className='flex-col'>
         <input
           className='my-2 rounded-sm px-1'
@@ -78,12 +125,19 @@ const ExercisePlanner: React.FC = () => {
         />
         <div className=''>
           {filteredExercises.map((exercise: Exercise) => (
-            <ExerciseCard
-              key={exercise.id}
-              name={exercise.name}
-              description={exercise.description}
-              id={exercise.id}
-            />
+            <div key={exercise.id} className='flex'>
+              <ExerciseCard
+                name={exercise.name}
+                description={exercise.description}
+                id={exercise.id}
+              />
+              <button
+                onClick={() => addExercise(exercise)}
+                className='w-1/4 text-2xl md:text-3xl cursor-pointer px-4 bg-white grid place-content-center border-b-2 hover:bg-indigo-500'
+              >
+                <PiFolderPlus />
+              </button>
+            </div>
           ))}
         </div>
       </section>
