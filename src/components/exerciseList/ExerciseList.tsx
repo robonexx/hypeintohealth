@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { exercises, intermediateExercises, advancedExercises } from '../../assets/data/ExerciseData';
+import { exercises, intermediateExercises, advancedExercises, dumbbellExercises } from '../../assets/data/ExerciseData';
 import ExerciseCard from '../exercisecard/ExerciseCard';
 import Button from '../button/Button';
 
@@ -12,7 +12,7 @@ interface Exercise {
 const ExerciseList: React.FC = () => {
   const [currentExercises, setCurrentExercises] = useState<Exercise[]>(exercises);
 
-  const handleButtonClick = (buttonType: 'beginner' | 'intermediate' | 'advanced') => {
+  const handleButtonClick = (buttonType: 'beginner' | 'intermediate' | 'advanced' | 'dumbbell') => {
     switch (buttonType) {
       case 'beginner':
         setCurrentExercises(exercises);
@@ -22,6 +22,9 @@ const ExerciseList: React.FC = () => {
         break;
       case 'advanced':
         setCurrentExercises(advancedExercises);
+        break;
+      case 'dumbbell':
+        setCurrentExercises(dumbbellExercises);
         break;
       default:
         setCurrentExercises([]);
@@ -33,10 +36,11 @@ const ExerciseList: React.FC = () => {
       <h4 className='text-2xl md:text-3xl text-gray-800 font-bold mb-3 text-center'>
         Exercises
       </h4>
-      <section className='w-full mx-auto flex flex-col md:flex-row items-center justify-center'>
+      <section className='w-full mx-auto flex flex-wrap md:flex-row items-center justify-around md:justify-center'>
         <Button title='Beginner' onClick={() => handleButtonClick('beginner')} />
         <Button title='Intermediate' onClick={() => handleButtonClick('intermediate')} />
         <Button title='Advanced' onClick={() => handleButtonClick('advanced')} />
+        <Button title='Dumbbell' onClick={() => handleButtonClick('dumbbell')} />
       </section>
       <p className='text-gray-600 mb-8 text-center'>
         Your proposed exercises for the week
