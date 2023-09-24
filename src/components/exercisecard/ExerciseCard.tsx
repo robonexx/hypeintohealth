@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { PiFolderPlus } from 'react-icons/pi'
+import { FiArrowDownCircle, FiArrowUpCircle } from 'react-icons/fi'
 
 interface ExerciseCardProps {
   name: string;

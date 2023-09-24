@@ -1,12 +1,9 @@
 import React from 'react';
 import IMGT from 'svg/tracker.svg';
 
-const ExerciseBanner: React.FC = () => {
+const ExercisePlanner: React.FC = () => {
   return (
     <section className='container mx-auto px-6 p-10 lg:px-40'>
-      <h2 className='text-4xl font-bold text-center text-gray-800 mb-40'>
-        Exercise planner
-      </h2>
 
       <div className='flex flex-col-reverse md:flex-row items-center justify-between flex-wrap mb-40'>
         <div className='w-full md:w-2/6 p-8 md:p-4'>
@@ -33,4 +30,4 @@ const ExerciseBanner: React.FC = () => {
   );
 };
 
-export default ExerciseBanner;
+export default ExercisePlanner;
