@@ -216,3 +216,117 @@ export const advancedExercises: Exercise[] = [
   },
 ];
 
+
+export const dumbbellExercises: Exercise[] = [
+  {
+    id: 1,
+    name: 'V-lift',
+    description:
+      'Hold the weights down by the thighs; keeping them vertical. Bring the arms up on a diagonal and out as wide and as high as the shoulders. Lower the weights down. Repeat 10 times.',
+  },
+  {
+    id: 2,
+    name: 'Marching in place with bicep curl',
+    description:
+      'This move combines a simple march in place with a bicep curl. Begin marching in place, making sure to bring your knee up so that your thigh is parallel with the ground. Once you establish a pace, begin to incorporate the bicep curl. When your right knee is in the air, perform a bicep curl with your left arm. Continue to alternate, keeping a comfortable pace. Perform 10 bicep curls with each arm.',
+  },
+  {
+    id: 3,
+    name: 'Curtsy lunge with dumbbell',
+    description:
+      'Standing with your feet shoulder-width apart, hold the dumbbells in front of your chest. Step your right leg behind you and to the left, crossing it behind your left leg, while lowering into a lunging position (as you would to perform a curtsy). Return that leg to a standing position before lunging with the left leg by crossing your left leg behind the right. Repeat 10 times on each side.',
+  },
+  {
+    id: 4,
+    name: 'Side extension with calf raise',
+    description:
+      'Hold a dumbbell in each hand. Stand with your feet as wide as your hips and reach the arms down along your sides. Pull the abs in. Then extend the arms straight out to the sides and up as high as the shoulders. Rock forward onto your tip toes and engage your calves. Then lower the arms down to the starting position and lower the heels. Repeat 10 times.',
+  },
+  {
+    id: 5,
+    name: 'Renegade rows',
+    description:
+      'Before you set up in a plank position, come on to all fours and place a dumbbell on either side of you, next to your shoulders. In tabletop position grasp a dumbbell in each hand. Then push up into a plank position or a modified plank position on your knees. With your back straight and core engaged, keep your hips and shoulders square to the floor as you drive your left elbow up toward the ceiling. Lower back to starting position. Alternate arms, performing 10 repetitions on each side.',
+  },
+  {
+    id: 6,
+    name: 'Squat with punches',
+    description:
+      'Hold a dumbbell in each hand, one in front of each shoulder. Bend down into a squat, squeezing your glutes and abs. As you return to a standing position, extend your right arm straight out in front of you in a punching motion. Bring your right arm back in and squat back down. This time as you return to standing, extend your left arm straight out in front of you in a punching motion. Repeat 10 times per arm.',
+  },
+  {
+    id: 7,
+    name: 'Standing overhead reach with side taps',
+    description:
+      'Standing with your feet shoulder-width apart, hold one dumbbell in each hand. Bend your elbows and lift the dumbbells into a goal-post position so that they are aligned with your shoulders. Breathe in and push the left arm up overhead as you tap the left foot out to the left, then come back to center. Repeat to the right. Alternate sides for 10 reaches per side.',
+  },
+  {
+    id: 8,
+    name: 'Russian twist',
+    description:
+      'The Russian twist is a great addition to any core workout. The twisting motion works your obliques, so you’re activating multiple core muscles at once, and adding a dumbbell takes it one step further. Sit on the ground with your knees bent and feet either hovering above the floor or resting on the ground. Tilt your upper body backward to a 45-degree angle (this will feel like you are at the top position of a situp). Hold one dumbbell with both hands, squeeze your shoulder blades together and pull your shoulders away from your ears. By lifting your feet off the ground, you’ll give your abs an extra challenge. (For a modification, keep the feet on the ground.) Keeping the dumbbell in front of your chest, twist your torso to the right reaching the dumbbell toward the floor. Then move back through center and twist to the left, tapping the dumbbell on the floor. Perform 10 times on each side.',
+  },
+  {
+    id: 9,
+    name: 'Overhead press',
+    description:
+      'To start, hold the dumbbells in a goal-post position with the weights in alignment with the ears. The upper arms should be parallel to the ground and the forearms perpendicular to the ground. Press the weights up overhead, in front of your forehead slightly so that you can see them with your eyes without tilting your head up. Then bring them back to the starting position. Repeat this 10 times.',
+  },
+  {
+    id: 10,
+    name: 'Tricep kickback',
+    description:
+      'Stand with your feet hip-distance apart, knees slightly bent. Hold one weight in each hand, and let your arms hang down at your sides. Hinge forward at the waist so that your chest is tilted at a 45-degree angle toward the ground. Perform a row by pulling your elbows up toward the sky, hugging them into your sides. Then, holding the elbows static, bring the weights up and back toward the back of the room into a tricep kickback, working the upper back and back of the arms. Come back to the row position and then repeat 10 times.',
+  },
+  {
+    id: 11,
+    name: 'Bent over row',
+    description:
+      'Stand with both feet on the floor, knees slightly bent and hold a dumbbell in each hand with your palms and fingers facing in. Hinge at the hips tilting the chest toward the ground at a 45-degree angle. Keep your chest open, looking forward, and roll your shoulders back. Pull both arms back as if you’re lifting a box from the floor. You’ve completed your first rep! Be sure to keep your elbows hugged in to your sides and your back straight. Repeat 10 times.',
+  },
+  {
+    id: 12,
+    name: 'Backward lunge',
+    description:
+      'Plant your feet on the ground and stand tall, keeping your back straight. Hold a dumbbell in each hand with your arms at your sides; they should remain here throughout the exercise. Step your right foot back and lower down until there is a 90-degree bend in your right knee. Your right thigh should be parallel to the ground. Step back to standing tall and then repeat with your left leg. Alternate, performing 10 repetitions on each side.',
+  },
+  {
+    id: 13,
+    name: 'Hammer curl',
+    description:
+      'Stand with your feet hips-width apart. Hold a dumbbell in each hand with your arms at your sides and your palms and fingers facing in toward your body. Making sure your palms remain facing in toward the body, lift both arms up toward your shoulders, keeping your elbows glued to your sides. Slowly lower both arms back down to your sides. Repeat 10 times.',
+  },
+  {
+    id: 14,
+    name: 'Overhead tricep extension',
+    description:
+      'Stand with your feet hips-width apart. Grab one dumbbell with each hand and extend both arms straight up overhead. Bring your hands together so that the weights are touching. Keeping your elbows facing forward and your biceps glued to your ears, lower the weight directly behind your head. Bring your arms back up to the extension over your head and repeat 10 times.',
+  },
+  {
+    id: 15,
+    name: 'Good mornings',
+    description:
+      'Standing with feet shoulder-width apart, grab a dumbbell in each hand and hold them on your shoulders with palms facing inward. Slightly bend your knees, keeping your back straight and core engaged as you hinge at the hips. Push your hips back until your torso is parallel to the floor. Return to the starting position, then repeat 10 times.',
+  },
+  {
+    id: 16,
+    name: 'Romanian deadlift',
+    description:
+      'Standing with feet hip-width apart, slightly bend your knees. Holding a dumbbell in each hand, push your hips back to hinge forward. Think of trying to push your butt against a wall behind you or shut a door with your butt. Maintain an engaged core. Press your feet into the floor as you allow the dumbbells to brush down your legs stopping around your shins. Each person is different, but the goal is to continue moving down your legs until your hips can’t push back any further and you feel a stretch in the hamstrings. Pause, then return back to the starting position by engaging the hamstrings. Repeat 10 times'
+  },
+  {
+    id: 17,
+    name: 'Pullovers',
+    description:
+      'This exercise only requires one dumbbell. Lie on your back on a flat surface and grab your dumbbell with both hands, think of cupping one end of the dumbbell for an optimal holding position. Bend your knees and place your feet flat on the floor. Raise the dumbbell up so it’s over your chest. Slowly let the dumbbell move behind your head, keeping your arms straight, until it creates a 45-degrees with the floor. Return back to the starting position. Repeat 10 times.',
+  },
+  {
+    id: 18,
+    name: 'Lateral Raise',
+    description:
+      'Stand with your feet hip-width apart and hold a dumbbell in each hand at your sides, palms facing inward. Keep your arms straight as you raise both dumbbells out to the sides until they reach shoulder height. Pause briefly at the top of the movement, then lower the dumbbells back down to your sides. Repeat this exercise 10 times.',
+  },
+  
+];
+
+
