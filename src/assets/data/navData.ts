@@ -12,18 +12,18 @@ export const navData: Item[] = [
       id: 1,
     },
     {
-      title: 'exercises',
-      path: '/exercises',
+      title: 'planner',
+      path: '/planner',
       id: 2,
     },
     {
       title: 'inspiration',
-      path: '/inspo',
+      path: '/inspiration',
       id: 3,
     },
     {
-      title: 'foods',
-      path: '/foods',
+      title: 'contact',
+      path: '/contact',
       id: 4,
     },
   ];
