@@ -19,7 +19,7 @@ import ExerciseCard from '../exercisecard/ExerciseCard';
 // remove the myList from localstorage and state
 
 const ExercisePlanner: React.FC = () => {
-  const [num, setNum] = useState(1);
+ /*  const [num, setNum] = useState(1); */
   const [myList, setMyList] = useState<Exercise[]>([]);
   const allExercises = [
     ...exercises,
@@ -172,7 +172,7 @@ const ExercisePlanner: React.FC = () => {
           className='my-2 rounded-sm px-1'
           type='text'
           placeholder='Search for exercises'
-          value={num}
+          value={7}
           onChange={(e) => e.target.value}
         />
         <ul>
