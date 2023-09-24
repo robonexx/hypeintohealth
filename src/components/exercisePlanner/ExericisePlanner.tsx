@@ -16,6 +16,7 @@ import ExerciseCard from '../exercisecard/ExerciseCard';
 // 3 create a function so that the user can pick exercises to create their own list
 // 4 output the users own training list
 // add and remove exercise
+// remove the myList from localstorage and state
 
 const ExercisePlanner: React.FC = () => {
   const [num, setNum] = useState(1);
@@ -37,25 +38,33 @@ const ExercisePlanner: React.FC = () => {
   );
 
   const addExercise = (exercise: Exercise) => {
-    // Add the exercise to the myList state
-    setMyList([...myList, exercise]);
+    const checkIfExists = myList.some((item) => item.id === exercise.id);
 
-    // Store the updated myList in local storage
-    localStorage.setItem('myList', JSON.stringify([...myList, exercise]));
+    if (!checkIfExists) {
+      setMyList([...myList, exercise]);
+
+      const updatedLocalStorage = [...myList, exercise];
+      localStorage.setItem('myList', JSON.stringify(updatedLocalStorage));
+    }
   };
 
   const handleRemoveFromMyList = (exerciseId: number) => {
-    // Remove the exercise from state (myList)
     setMyList((prevMyList) =>
       prevMyList.filter((item) => item.id !== exerciseId)
     );
 
-    // Remove the exercise from local storage
     const updatedLocalStorage = myList.filter((item) => item.id !== exerciseId);
     localStorage.setItem('myList', JSON.stringify(updatedLocalStorage));
   };
 
-  // trying if this function works
+  // remove myList from state and localStorage
+  const clearMyList = () => {
+    setMyList([]);
+    localStorage.removeItem('myList');
+  };
+
+  // testing for a randomzir function
+
   const array1: Exercise[] = exercises;
 
   const array2: Exercise[] = dumbbellExercises;
@@ -65,7 +74,7 @@ const ExercisePlanner: React.FC = () => {
   const randomList = getRandomExercises(numOfExercises, array1, array2);
 
   useEffect(() => {
-    // Retrieve the user's list from local storage
+    // get items from local storage if there is any
     const storedMyList = localStorage.getItem('myList');
     if (storedMyList) {
       setMyList(JSON.parse(storedMyList));
@@ -96,7 +105,17 @@ const ExercisePlanner: React.FC = () => {
         </div>
       </div>
       <section>
-        <h2>Exercise routine</h2>
+        <div className='w-full flex items-center justify-between'>
+          <h2 className='w-full py-2 px-2 text-2xl font-black'>
+            Exercise routine
+          </h2>
+          <button
+            onClick={clearMyList}
+            className='w-1/4 mt-4 px-2 py-2 bg-red-500 text-white rounded grid place-content-center hover:bg-red-300 hover:text-zinc-700 transition-all duration-300'
+          >
+            <PiTrashLight />
+          </button>
+        </div>
         <div>
           {myList.map((exercise: Exercise) => (
             <div key={exercise.id} className='flex'>
@@ -106,7 +125,7 @@ const ExercisePlanner: React.FC = () => {
                 id={exercise.id}
               />
               <button
-                className='w-1/4 text-red-600 text-xl md:text-2xl cursor-pointer px-4 bg-white grid place-content-center border-b-2 hover:bg-red-200'
+                className='w-1/4 text-red-600 text-xl md:text-2xl cursor-pointer px-4 bg-white grid place-content-center border-b-2 hover:bg-red-300 hover:text-zinc-700 transition-all duration-300'
                 onClick={() => handleRemoveFromMyList(exercise.id)}
               >
                 <PiTrashLight />
@@ -115,9 +134,9 @@ const ExercisePlanner: React.FC = () => {
           ))}
         </div>
       </section>
-      <section className='flex-col'>
+      <section className='flex-col mt-10'>
         <input
-          className='my-2 rounded-sm px-1'
+          className='my-2 rounded-sm px-1 py-2 text-lg'
           type='text'
           placeholder='Search for exercises'
           value={searchQuery}
@@ -133,7 +152,7 @@ const ExercisePlanner: React.FC = () => {
               />
               <button
                 onClick={() => addExercise(exercise)}
-                className='w-1/4 text-2xl md:text-3xl cursor-pointer px-4 bg-white grid place-content-center border-b-2 hover:bg-indigo-500'
+                className='w-1/4 text-2xl md:text-3xl cursor-pointer px-4 bg-white grid place-content-center border-b-2 hover:bg-indigo-500 transition-all duration-300'
               >
                 <PiFolderPlus />
               </button>
@@ -143,6 +162,7 @@ const ExercisePlanner: React.FC = () => {
       </section>
       <div className='bg-black h-4 w-full my-16'></div>
       <section>
+        <p className='text-red-500 text-2xl'>UNDER CONSTRUCTION</p>
         <p>
           This will be where you can choose from the different lists of
           exercises and number of exercises, will be randomly picked from the
