@@ -1,5 +1,9 @@
 import { useState } from 'react';
 import Logo from '../logo/Logo';
+import { PiXCircleThin } from 'react-icons/pi';
+import { RxHamburgerMenu } from 'react-icons/rx';
+
+import * as styles from './styles';
 
 export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -7,53 +11,47 @@ export default function Header() {
   return (
     <div className='flex items-center justify-between border-b border-gray-400 py-8'>
       <nav>
-        <section className='MOBILE-MENU flex lg:hidden mx-4'>
+        <section className='flex lg:hidden mx-4'>
           <div
-            className='HAMBURGER-ICON space-y-2'
+            className='space-y-2'
             onClick={() => setIsNavOpen((prev) => !prev)}
           >
-            <span className='block h-0.5 w-8 animate-pulse bg-gray-600'></span>
-            <span className='block h-0.5 w-8 animate-pulse bg-gray-600'></span>
-            <span className='block h-0.5 w-8 animate-pulse bg-gray-600'></span>
+            <RxHamburgerMenu className='block h-8 w-8 text-gray-400' />
           </div>
-
-          <div className={isNavOpen ? 'showMenuNav' : 'hideMenuNav'}>
-            {' '}
-            <div
-              className='CROSS-ICON absolute top-0 right-0 px-8 py-8'
-              onClick={() => setIsNavOpen(false)}
-            >
-              <svg
-                className='h-8 w-8 text-gray-600'
-                viewBox='0 0 24 24'
-                fill='none'
-                stroke='currentColor'
-                strokeWidth='2'
-                strokeLinecap='round'
-                strokeLinejoin='round'
+         
+              <div
+                className={isNavOpen ? styles.ShowNav : styles.HideNav}
               >
-                <line x1='18' y1='6' x2='6' y2='18' />
-                <line x1='6' y1='6' x2='18' y2='18' />
-              </svg>
-            </div>
-            <ul className='MENU-LINK-MOBILE-OPEN flex flex-col items-center justify-between min-h-96 transition-all duration-500'>
-              <a href='/' className='self-center text-4xl my-16'>
-                <Logo title='Hype Into Health' />
-              </a>
-              <li className='hover:border-b hover:border-gray-400 my-8 uppercase'>
-                <a href='/about'>Exercises</a>
-              </li>
-              <li className='hover:border-b hover:border-gray-400 my-8 uppercase'>
-                <a href='/portfolio'>Foods</a>
-              </li>
-              <li className='hover:border-b hover:border-gray-400 my-8 uppercase'>
-                <a href='/contact'>Contact</a>
-              </li>
-            </ul>
-          </div>
+                {' '}
+                <div
+                  className='absolute top-0 right-0 px-8 py-8'
+                  onClick={() => setIsNavOpen(false)}
+                >
+                  <PiXCircleThin className='block h-8 w-8 text-zinc-800' />
+                </div>
+                <ul className='flex flex-col items-center justify-between min-h-96 transition-all duration-500'
+                
+                >
+                  <a href='/' className='self-center text-4xl my-16'>
+                    <Logo title='Hype Into Health' />
+                  </a>
+                  <li
+                    className='hover:border-b hover:border-gray-400 my-8 uppercase'
+                   
+                  >
+                    <a href='/about'>Exercises</a>
+                  </li>
+                  <li className='hover:border-b hover:border-gray-400 my-8 uppercase'>
+                    <a href='/portfolio'>Foods</a>
+                  </li>
+                  <li className='hover:border-b hover:border-gray-400 my-8 uppercase'>
+                    <a href='/contact'>Contact</a>
+                  </li>
+                </ul>
+              </div>
         </section>
 
-        <ul className='DESKTOP-MENU hidden space-x-8 lg:flex text-slate-200 px-8 text-xl'>
+        <ul className='hidden space-x-8 lg:flex text-slate-200 px-8 text-xl'>
           <li>
             <a href='/about'>Exercises</a>
           </li>
@@ -65,25 +63,6 @@ export default function Header() {
           </li>
         </ul>
       </nav>
-      <style>{`
-      .hideMenuNav {
-        display: none;
-      }
-      .showMenuNav {
-        display: block;
-        position: absolute;
-        width: 100%;
-        height: 100vh;
-        top: 0;
-        left: 0;
-        background: white;
-        z-index: 10;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-      }
-    `}</style>
     </div>
   );
 }
