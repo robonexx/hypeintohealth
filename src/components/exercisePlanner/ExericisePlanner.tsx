@@ -82,21 +82,24 @@ const ExercisePlanner: React.FC = () => {
           </h4>
           <p className='text-gray-600 mb-8'>
             This training exercise planner provides a great way to begin your
-            road to feeling better. You have the flexibility to select exercises
-            that suit your preferences or opt for random ones. It's all about
-            keeping your workouts engaging and tailored to your needs while you
-            journey towards a healthier, more energized self. With this
-            adaptable approach, exercise becomes an enjoyable adventure, and
-            you're more likely to stick with it for the long term. Start today
-            and experience the uplifting benefits of a personalized exercise
-            routine.
+            road to feeling better. You have the flexibility to search & select
+            exercises that suit your preferences or opt for random ones. It's
+            all about keeping your workouts engaging and tailored to your needs
+            while you journey towards a healthier, more energized self. With
+            this adaptable approach, exercise becomes an enjoyable adventure,
+            and you're more likely to stick with it for the long term. Start
+            today and experience the uplifting benefits of a personalized
+            exercise routine.
           </p>
         </div>
       </div>
-      <p className='text-gray-600'>Your list will be automatically saved to your device storage (localstorage), you can remove it with the delete button</p>
+      <p className='text-gray-600'>
+        Your list will be automatically saved to your device storage
+        (localstorage), you can remove it with the delete button
+      </p>
       <section>
         <div className='w-full flex items-center justify-between'>
-          <h2 className='mt-16 mb-4 py-2 bg-gradient-to-b from-orange-500 to-yellow-300 bg-clip-text text-transparent drop-shadow-xl font-extrabold body-font font-black text-xl  xl:text-3xl'>
+          <h2 className='mt-16 mb-4 py-2 bg-gradient-to-r from-gray-700 via-gray-900 to-black bg-clip-text text-transparent drop-shadow-md font-extrabold body-font font-black text-2xl md:text-3xl lg:text-5xl'>
             Selected exercises for your daily routine
           </h2>
           <button
