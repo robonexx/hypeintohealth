@@ -75,12 +75,12 @@ const ExerciseSuggestion: React.FC = () => {
 
   return (
     <section className='container mx-auto px-6 p-10 lg:px-40'>
-      <p>
-        Choose from the different lists of exercises, then add the number of exercises
-        you want to have & it will be randomly picked from the selected options.
-        If you want new exercises you can submit with the choices you already
-        have, or select a new set of exercises. You can mix and match between
-        beginner, intermediate, advanced and dumbell.
+      <p className='mb-20'>
+        Choose from the different lists of exercises, then add the number of
+        exercises you want to have & it will be randomly picked from the
+        selected options. If you want new exercises you can submit with the
+        choices you already have, or select a new set of exercises. You can mix
+        and match between beginner, intermediate, advanced and dumbell.
       </p>
       <form onSubmit={handleSubmit} className='flex flex-col px-8'>
         <section className='w-full mx-auto flex flex-wrap md:flex-row items-center justify-around md:justify-center'>
@@ -133,9 +133,14 @@ const ExerciseSuggestion: React.FC = () => {
         </button>
       </form>
       <h2 className='mt-16 mb-4 py-2 bg-gradient-to-b from-orange-500 to-yellow-300 bg-clip-text text-transparent drop-shadow-xl font-extrabold body-font font-black text-2xl md:text-3xl lg:text-5xl'>
-        Your Routine 🦾
+        Your Routine / training program 🦾
       </h2>
+
       <ul>
+        <p className='text-gray-600 font-semibold text-xl'>
+          We suggest you do timed sets, 45sec / exercise (do as many as you can in the during the 45sec) x 2-4 times in routine program
+          intervals, but hey if only 1 time / exercise - remember thats fine 😃
+        </p>
         {randomList.map((exercise: Exercise) => (
           <ExerciseCard
             key={exercise.id}
