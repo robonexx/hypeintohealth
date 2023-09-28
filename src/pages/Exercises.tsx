@@ -8,7 +8,7 @@ const Exercises = () => {
       </h1>
       <div className='w-full md:w-1/2'>
         <p className='text-gray-600 mb-8 px-8 text-base md:text-xl'>
-          Here are three exercise lists to kickstart your fitness journey. The
+          Here are four exercise lists to kickstart your fitness journey. The
           key is to simply start working out; it's not about the quantity but
           the consistency. Every step you take is progress, so keep that in
           mind. Begin with 1 - 5 exercises, and gradually add more as you go
