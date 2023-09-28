@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       dropShadow: {
-        'xl': '0 20px 13px rgb(118, 255, 3, .335)',
+        'xl': '0 14px 20px rgb(12, 12, 12, .435)',
         '4xl': [
           '0 35px 35px rgba(0, 0, 0, 0.25)',
           '0 45px 65px rgba(0, 0, 0, 0.15)',
