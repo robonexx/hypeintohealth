@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { PiFolderPlus, PiTrashLight } from 'react-icons/pi';
 import IMGT from 'svg/tracker.svg';
-import { getRandomExercises } from '../../utils/shuffleExercises';
 import {
   exercises,
   intermediateExercises,
@@ -19,7 +18,7 @@ import ExerciseCard from '../exercisecard/ExerciseCard';
 // remove the myList from localstorage and state
 
 const ExercisePlanner: React.FC = () => {
- /*  const [num, setNum] = useState(1); */
+  /*  const [num, setNum] = useState(1); */
   const [myList, setMyList] = useState<Exercise[]>([]);
   const allExercises = [
     ...exercises,
@@ -63,16 +62,6 @@ const ExercisePlanner: React.FC = () => {
     localStorage.removeItem('myList');
   };
 
-  // testing for a randomzir function
-
-  const array1: Exercise[] = exercises;
-
-  const array2: Exercise[] = dumbbellExercises;
-
-  const numOfExercises = 7;
-
-  const randomList = getRandomExercises(numOfExercises, array1, array2);
-
   useEffect(() => {
     // get items from local storage if there is any
     const storedMyList = localStorage.getItem('myList');
@@ -104,10 +93,11 @@ const ExercisePlanner: React.FC = () => {
           </p>
         </div>
       </div>
+      <p className='text-gray-600'>Your list will be automatically saved to your device storage (localstorage), you can remove it with the delete button</p>
       <section>
         <div className='w-full flex items-center justify-between'>
-          <h2 className='w-full py-2 px-2 text-2xl font-black'>
-            Exercise routine
+          <h2 className='mt-16 mb-4 py-2 bg-gradient-to-b from-orange-500 to-yellow-300 bg-clip-text text-transparent drop-shadow-xl font-extrabold body-font font-black text-xl  xl:text-3xl'>
+            Selected exercises for your daily routine
           </h2>
           <button
             onClick={clearMyList}
@@ -141,7 +131,10 @@ const ExercisePlanner: React.FC = () => {
           placeholder='Search for exercises'
           value={searchQuery}
           onChange={handleSearchChange}
-        />
+        />{' '}
+        <span className='px-2 font-semibold text-gray-600'>
+          Here you can search for exercises
+        </span>
         <div className=''>
           {filteredExercises.map((exercise: Exercise) => (
             <div key={exercise.id} className='flex'>
@@ -159,35 +152,6 @@ const ExercisePlanner: React.FC = () => {
             </div>
           ))}
         </div>
-      </section>
-      <div className='bg-black h-4 w-full my-16'></div>
-      <section>
-        <p className='text-red-500 text-2xl'>UNDER CONSTRUCTION</p>
-        <p>
-          This will be where you can choose from the different lists of
-          exercises and number of exercises, will be randomly picked from the
-          arrays
-        </p>
-        <input
-          className='my-2 rounded-sm px-1'
-          type='text'
-          placeholder='Search for exercises'
-          value={7}
-          onChange={(e) => e.target.value}
-        />
-        <ul>
-          {randomList.map((exercise) => (
-            <ExerciseCard
-              key={exercise.id}
-              name={exercise.name}
-              description={exercise.description}
-              id={exercise.id}
-            />
-            /*      <li key={exercise.id}>
-            {exercise.name}: {exercise.description}
-          </li> */
-          ))}
-        </ul>
       </section>
     </section>
   );
