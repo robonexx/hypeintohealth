@@ -1,4 +1,4 @@
-import ExerciseList from '../components/exerciseList/ExerciseList';
+import ExerciseSuggestion from '../components/exerciseSuggestion/ExerciseSuggestion';
 import ExerciseBanner from '../components/exercisebanner/ExerciseBanner';
 
 const Home = () => {
@@ -8,7 +8,7 @@ const Home = () => {
         Hype Into Health
       </h1>
       <ExerciseBanner />
-      <ExerciseList />
+      <ExerciseSuggestion />
     </main>
   );
 };

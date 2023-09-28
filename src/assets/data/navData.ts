@@ -17,8 +17,8 @@ export const navData: Item[] = [
       id: 2,
     },
     {
-      title: 'inspiration',
-      path: '/inspiration',
+      title: 'exercises',
+      path: '/exercises',
       id: 3,
     },
     {

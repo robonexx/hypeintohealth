@@ -48,14 +48,12 @@ const ExerciseBanner: React.FC = () => {
             To help you get started
           </h4>
           <p className='text-gray-600 mb-8'>
-            Here are three exercise lists to kickstart your fitness journey. The
-            key is to simply start working out; it's not about the quantity but
-            the consistency. Every step you take is progress, so keep that in
-            mind. Begin with 1 - 5 exercises, and gradually add more as you go
-            along. And remember, there's no need to rush; we're in this for the
-            long haul! Keep pushing forward 😉.
-
-            If you want to create your own routine from the existing lists you can do so here... <a href='/planner' className='text-indigo-500'>Routine planner</a>
+            Here you can get a random exercise, you can choose from beginner to advanced level and then number of exercises.
+            And it will spit out a nice exercise program for you to use today.
+            
+            What are you waiting for Lets Go! 😍
+            
+            If you want to plan your exercise and choose your own, you can to that here - <a href='/planner' className='text-indigo-500'>Routine planner</a>
           </p>
         </div>
       </div>

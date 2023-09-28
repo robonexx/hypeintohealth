@@ -38,13 +38,12 @@ const Input: FC<InputProps> = ({
         placeholder={placeholder}
         disabled={disabled}
         onChange={onChange}
-      >
-        {error && (
-          <p className='text-[#db4437] text-sm font-normal ml-3 mt-1'>
-            This field can't be empty
-          </p>
-        )}
-      </input>
+      ></input>
+      {error && (
+        <p className='text-[#db4437] text-sm font-normal ml-3 mt-1'>
+          This field can't be empty
+        </p>
+      )}
     </div>
   );
 };
