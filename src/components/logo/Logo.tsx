@@ -6,7 +6,7 @@ interface LogoProps {
 const Logo: React.FC<LogoProps> = ({ title }) => {
   return (
     <motion.a
-      className='w-full'
+      className='w-full cursor-pointer'
       href='/'
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
