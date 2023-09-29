@@ -10,12 +10,11 @@ import {
 import ExerciseCard from '../exercisecard/ExerciseCard';
 
 const ExerciseSuggestion: React.FC = () => {
-  const [number, setNumber] = useState<number | undefined>(undefined);
+  const [number, setNumber] = useState<number>(0);
   const [randomList, setRandomList] = useState<Exercise[]>([]);
   const [selectedExercises, setSelectedExercises] = useState<Exercise[]>([]);
   const [myExercises, setMyExercises] = useState<Exercise[]>([]);
 
-  console.log(myExercises.length);
   const handleButtonClick = (
     buttonType: 'beginner' | 'intermediate' | 'advanced' | 'dumbbell' | 'myOwn'
   ) => {
@@ -25,7 +24,10 @@ const ExerciseSuggestion: React.FC = () => {
         prevSelected.filter((exercise) => !newArray.includes(exercise))
       );
     } else {
-      setSelectedExercises((prevSelected) => [...prevSelected, ...newArray]);
+      setSelectedExercises((prevSelected) => [
+        ...prevSelected.filter((exercise) => !newArray.includes(exercise)),
+        ...newArray,
+      ]);
     }
   };
 
@@ -71,7 +73,7 @@ const ExerciseSuggestion: React.FC = () => {
     if (!isNaN(parsedNumber)) {
       setNumber(parsedNumber);
     } else {
-      setNumber(undefined);
+      setNumber(0);
     }
   };
 
@@ -147,10 +149,14 @@ const ExerciseSuggestion: React.FC = () => {
           className='my-2 rounded-sm px-1 w-fit h-fit self-center'
           type='text'
           placeholder='Add number of exercises'
-          value={number}
+          value={number === undefined ? '' : number}
           onChange={handleInputChange}
         />
-        <p className='text-center text-red-900'>{selectedExercises.length > (number || 0) ? `number cant be higher than ${selectedExercises.length}` : ``}</p>
+        <p className='text-center text-red-800'>
+          {selectedExercises.length > (number || 0)
+            ? `number cant be higher than ${selectedExercises.length}`
+            : ``}
+        </p>
 
         <button
           type='submit'
@@ -184,142 +190,3 @@ const ExerciseSuggestion: React.FC = () => {
 };
 
 export default ExerciseSuggestion;
-
-/* 
-I tried it with use Refs but I dident get it right... will remove this code later, some stuff i wanna look thru
-
-
-import React, { useState, ChangeEvent, FormEvent } from 'react';
-import { getRandomExercises } from '../../utils/shuffleExercises';
-import {
-  exercises,
-  intermediateExercises,
-  advancedExercises,
-  dumbbellExercises,
-  Exercise,
-} from '../../assets/data/ExerciseData';
-import ExerciseCard from '../exercisecard/ExerciseCard';
-import Button from '../button/Button';
-
-const ExerciseSuggestion: React.FC = () => {
-  const [number, setNumber] = useState<number | undefined>(undefined);
-  const [selectedArrays, setSelectedArrays] = useState<Exercise[][]>([]);
-  const [randomList, setRandomList] = useState<Exercise[]>([]);
-
-  const handleButtonClick = (
-    buttonType: 'beginner' | 'intermediate' | 'advanced' | 'dumbbell'
-  ) => {
-    let newArray: Exercise[] = [];
-
-    switch (buttonType) {
-      case 'beginner':
-        newArray = exercises;
-        break;
-      case 'intermediate':
-        newArray = dumbbellExercises;
-        break;
-      case 'advanced':
-        newArray = intermediateExercises;
-        break;
-      case 'dumbbell':
-        newArray = advancedExercises;
-        break;
-      default:
-        break;
-    }
-
-    // Toggle the selected array
-    if (selectedArrays.some((arr) => arr === newArray)) {
-      setSelectedArrays(selectedArrays.filter((arr) => arr !== newArray));
-    } else {
-      setSelectedArrays([...selectedArrays, newArray]);
-    }
-  };
-
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const inputValue = e.target.value;
-    const parsedNumber = parseFloat(inputValue);
-
-    if (!isNaN(parsedNumber)) {
-      setNumber(parsedNumber);
-    } else {
-      setNumber(undefined);
-    }
-  };
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    if (number !== undefined) {
-      const combinedArrays = ([] as Exercise[]).concat(...selectedArrays);
-      const newRandomList = getRandomExercises(number, combinedArrays);
-      setRandomList(newRandomList);
-    } else {
-      console.log('Invalid number. Submission canceled.');
-    }
-  };
-
-  return (
-    <section className='container mx-auto px-6 p-10 lg:px-40'>
-      <p>
-        This will be where you can choose from different lists of exercises, and
-        the number of exercises will be randomly picked from the selected
-        arrays.
-      </p>
-      <form onSubmit={handleSubmit} className='flex flex-col md:flex-row px-8'>
-        <input
-          className='my-2 rounded-sm px-1 w-fit h-fit self-center'
-          type='text'
-          placeholder='Add number of exercises'
-          value={number}
-          onChange={handleInputChange}
-        />
-        <section className='w-full mx-auto flex flex-wrap md:flex-row items-center justify-around md:justify-center'>
-          <Button
-            title='Beginner'
-            onClick={() => handleButtonClick('beginner')}
-            selected={selectedArrays.some((arr) => arr === exercises)}
-          />
-          <Button
-            title='Intermediate'
-            onClick={() => handleButtonClick('intermediate')}
-            selected={selectedArrays.some((arr) => arr === dumbbellExercises)}
-          />
-          <Button
-            title='Advanced'
-            onClick={() => handleButtonClick('advanced')}
-            selected={selectedArrays.some(
-              (arr) => arr === intermediateExercises
-            )}
-          />
-          <Button
-            title='Dumbbell'
-            onClick={() => handleButtonClick('dumbbell')}
-            selected={selectedArrays.some((arr) => arr === advancedExercises)}
-          />
-          <button
-            type='submit'
-            title='Submit'
-            className='bg-indigo-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mx-8 my-4 w-2/3 md:w-32 self-center'
-          >
-            Submit
-          </button>
-        </section>
-      </form>
-      <ul>
-        {randomList.map((exercise: Exercise) => (
-          <ExerciseCard
-            key={exercise.id}
-            name={exercise.name}
-            description={exercise.description}
-            id={exercise.id}
-          />
-        ))}
-      </ul>
-    </section>
-  );
-};
-
-export default ExerciseSuggestion;
-
-
-*/
