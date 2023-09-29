@@ -1,5 +1,10 @@
-import React, { useState } from 'react';
-import { exercises, intermediateExercises, advancedExercises, dumbbellExercises } from '../../assets/data/ExerciseData';
+import React, { useState, useEffect } from 'react';
+import {
+  exercises,
+  intermediateExercises,
+  advancedExercises,
+  dumbbellExercises,
+} from '../../assets/data/ExerciseData';
 import ExerciseCard from '../exercisecard/ExerciseCard';
 import Button from '../button/Button';
 
@@ -10,9 +15,14 @@ interface Exercise {
 }
 
 const ExerciseList: React.FC = () => {
-  const [currentExercises, setCurrentExercises] = useState<Exercise[]>(exercises);
+  const [currentExercises, setCurrentExercises] =
+    useState<Exercise[]>(exercises);
 
-  const handleButtonClick = (buttonType: 'beginner' | 'intermediate' | 'advanced' | 'dumbbell') => {
+  const [myExercises, setMyExercises] = useState<Exercise[]>([]);
+
+  const handleButtonClick = (
+    buttonType: 'beginner' | 'intermediate' | 'advanced' | 'dumbbell' | 'myOwn'
+  ) => {
     switch (buttonType) {
       case 'beginner':
         setCurrentExercises(exercises);
@@ -26,10 +36,22 @@ const ExerciseList: React.FC = () => {
       case 'dumbbell':
         setCurrentExercises(dumbbellExercises);
         break;
+      case 'myOwn':
+        setCurrentExercises(myExercises);
+        break;
       default:
         setCurrentExercises([]);
     }
   };
+
+  useEffect(() => {
+    const storedMyExercises = localStorage.getItem('myExercises');
+    if (storedMyExercises) {
+      setMyExercises(JSON.parse(storedMyExercises));
+    } else {
+      setMyExercises([]);
+    }
+  }, []);
 
   return (
     <div className='container mx-auto px-4 p-10'>
@@ -37,10 +59,23 @@ const ExerciseList: React.FC = () => {
         Exercises
       </h4>
       <section className='w-full mx-auto flex flex-wrap md:flex-row items-center justify-around md:justify-center'>
-        <Button title='Beginner' onClick={() => handleButtonClick('beginner')} />
-        <Button title='Intermediate' onClick={() => handleButtonClick('intermediate')} />
-        <Button title='Advanced' onClick={() => handleButtonClick('advanced')} />
-        <Button title='Dumbbell' onClick={() => handleButtonClick('dumbbell')} />
+        <Button
+          title='Beginner'
+          onClick={() => handleButtonClick('beginner')}
+        />
+        <Button
+          title='Intermediate'
+          onClick={() => handleButtonClick('intermediate')}
+        />
+        <Button
+          title='Advanced'
+          onClick={() => handleButtonClick('advanced')}
+        />
+        <Button
+          title='Dumbbell'
+          onClick={() => handleButtonClick('dumbbell')}
+        />
+        <Button title='My Own' onClick={() => handleButtonClick('myOwn')} />
       </section>
       <p className='text-gray-600 mb-8 text-center'>
         Your proposed exercises for the week
