@@ -1,4 +1,4 @@
-## Vite + React + TypeScript + Tailwind + React-router-dom + framer-motion
+## Vite + React + TypeScript + Tailwind + React-router-dom + framer-motion + Vercel
 
 ### Assingment at CME, course - Web and Mobile App development 
 
