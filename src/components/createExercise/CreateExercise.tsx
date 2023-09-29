@@ -36,7 +36,7 @@ const CreateExercise: FC = () => {
       // Create a new exercise object
         const newExercise: Exercise = {
           // Use a better method to generate IDs in a real-world scenario lie a uuid generator
-        id: Math.floor(Math.random() * 1000), 
+        id: Math.floor(Math.random() * 10000), 
         name: state.name,
         description: state.description,
       };

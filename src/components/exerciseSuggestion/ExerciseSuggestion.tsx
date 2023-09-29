@@ -15,6 +15,7 @@ const ExerciseSuggestion: React.FC = () => {
   const [selectedExercises, setSelectedExercises] = useState<Exercise[]>([]);
   const [myExercises, setMyExercises] = useState<Exercise[]>([]);
 
+  console.log(myExercises.length);
   const handleButtonClick = (
     buttonType: 'beginner' | 'intermediate' | 'advanced' | 'dumbbell' | 'myOwn'
   ) => {
@@ -134,11 +135,13 @@ const ExerciseSuggestion: React.FC = () => {
           <button
             className={`${
               isSelected('myOwn') ? 'bg-green-400' : 'bg-blue-500'
-            } hover:bg-blue-700 text-white font-bold m-2 py-2 px-2 rounded w-3/5 md:w-1/3`}
+            } hover:bg-blue-700 text-white font-bold m-2 py-2 px-2 rounded w-3/5 md:w-1/3 disabled:bg-gray-600`}
             onClick={() => handleButtonClick('myOwn')}
+            disabled={myExercises.length === 0 ? true : false}
           >
-            My-Own
+            {myExercises.length === 0 ? 'no own exercises yet' : 'My Own'}
           </button>
+          <p></p>
         </section>
         <input
           className='my-2 rounded-sm px-1 w-fit h-fit self-center'
@@ -147,6 +150,8 @@ const ExerciseSuggestion: React.FC = () => {
           value={number}
           onChange={handleInputChange}
         />
+        <p className='text-center text-red-900'>{selectedExercises.length > (number || 0) ? `number cant be higher than ${selectedExercises.length}` : ``}</p>
+
         <button
           type='submit'
           title='Submit'
