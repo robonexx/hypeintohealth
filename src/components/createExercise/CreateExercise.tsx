@@ -1,12 +1,15 @@
-import { FC, useState, FormEvent, ChangeEvent } from 'react';
+import { FC, useState, FormEvent, ChangeEvent, useEffect } from 'react';
 import Input from '../Input/Input';
 import TextArea from '../textArea/TextArea';
+import { Exercise } from '../../assets/data/ExerciseData';
+import ExerciseCard from '../exercisecard/ExerciseCard';
 
 const CreateExercise: FC = () => {
   const [state, setState] = useState({
     name: '',
     description: '',
   });
+  const [myExercises, setMyExercises] = useState<Exercise[]>([]);
   const [error, setError] = useState(false);
 
   // handle on change
@@ -28,8 +31,43 @@ const CreateExercise: FC = () => {
     } else {
       setError(false);
       console.log(state.name, state.description);
+
+      // Create a new exercise object
+      const newExercise: Exercise = {
+        id: Math.floor(Math.random() * 1000), // Use a better method to generate IDs in a real-world scenario
+        name: state.name,
+        description: state.description,
+      };
+
+      // Add the new exercise to myExercise array
+      // Check if there are existing exercises in local storage
+      const storedMyExercise = localStorage.getItem('myExercises');
+      let updatedMyExercise: Exercise[];
+
+      if (storedMyExercise) {
+        const existingExercises = JSON.parse(storedMyExercise);
+        updatedMyExercise = [...existingExercises, newExercise];
+      } else {
+        updatedMyExercise = [newExercise];
+      }
+
+      // Update local storage
+      localStorage.setItem('myExercises', JSON.stringify(updatedMyExercise));
+
+      // Clear the form inputs
+      setState({ name: '', description: '' });
     }
   };
+
+  // Check if there are existing exercises in local storage with useEffect hook if no exercises we push a empty array to state.
+  useEffect(() => {
+    const storedMyExercises = localStorage.getItem('myExercises');
+    if (storedMyExercises) {
+      setMyExercises(JSON.parse(storedMyExercises));
+    } else {
+      setMyExercises([]);
+    }
+  }, []);
 
   return (
     <main className='container mx-auto px-6 p-10 lg:px-40'>
@@ -65,6 +103,12 @@ const CreateExercise: FC = () => {
             Submit
           </button>
         </form>
+      </section>
+          <section>
+          <h2 className='mt-16 mb-4 py-2 bg-gradient-to-r from-gray-700 via-gray-900 to-black bg-clip-text text-transparent drop-shadow-md font-extrabold body-font font-black text-xl md:text-2xl lg:text-3xl'>
+          Your own exercises
+        </h2>
+        {myExercises && myExercises.map((ex) => <ExerciseCard {...ex} />)}
       </section>
     </main>
   );

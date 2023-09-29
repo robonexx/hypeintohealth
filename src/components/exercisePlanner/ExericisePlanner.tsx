@@ -11,13 +11,14 @@ import {
 import ExerciseCard from '../exercisecard/ExerciseCard';
 
 const ExercisePlanner: React.FC = () => {
-  /*  const [num, setNum] = useState(1); */
+  const [myExercises, setMyExercises] = useState<Exercise[]>([]);
   const [myList, setMyList] = useState<Exercise[]>([]);
   const allExercises = [
     ...exercises,
     ...intermediateExercises,
     ...advancedExercises,
     ...dumbbellExercises,
+    ...myExercises
   ];
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -60,6 +61,15 @@ const ExercisePlanner: React.FC = () => {
     const storedMyList = localStorage.getItem('myList');
     if (storedMyList) {
       setMyList(JSON.parse(storedMyList));
+    }
+  }, []);
+
+  useEffect(() => {
+    const storedMyExercises = localStorage.getItem('myExercises');
+    if (storedMyExercises) {
+      setMyExercises(JSON.parse(storedMyExercises));
+    } else {
+      setMyExercises([]);
     }
   }, []);
 
