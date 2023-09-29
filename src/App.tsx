@@ -6,10 +6,12 @@ import Home from './pages/Home';
 import Planner from './pages/Planner';
 import Contact from './pages/Contact';
 import Exercises from './pages/Exercises';
+import ScrollToTop from './components/scrolltotop/ScrollToTop';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Header>
         <Logo title='HIH' />
         <Nav />
