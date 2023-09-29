@@ -1,18 +1,16 @@
 import { FC, ChangeEvent } from 'react';
 
-interface InputProps {
-  type: 'text' | 'number' | 'email' | 'password';
+interface TextProps {
   label: string;
   name: string;
   value: string | number;
   placeholder: string;
   error: boolean;
   disabled?: boolean;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
-const Input: FC<InputProps> = ({
-  type,
+const TextArea: FC<TextProps> = ({
   label,
   value,
   name,
@@ -29,16 +27,15 @@ const Input: FC<InputProps> = ({
       >
         {label}
       </label>
-      <input
+      <textarea
         className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-current placeholder-[#667085]'
-        type={type}
         id={label}
         value={value}
         name={name}
         placeholder={placeholder}
         disabled={disabled}
         onChange={onChange}
-      ></input>
+      ></textarea>
       {error && (
         <p className='text-[#db4437] text-sm font-normal ml-3 mt-1'>
           This field can't be empty
@@ -48,4 +45,4 @@ const Input: FC<InputProps> = ({
   );
 };
 
-export default Input;
+export default TextArea;
