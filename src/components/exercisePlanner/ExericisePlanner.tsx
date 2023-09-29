@@ -18,7 +18,7 @@ const ExercisePlanner: React.FC = () => {
     ...intermediateExercises,
     ...advancedExercises,
     ...dumbbellExercises,
-    ...myExercises
+    ...myExercises,
   ];
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -86,14 +86,20 @@ const ExercisePlanner: React.FC = () => {
           <p className='text-gray-600 mb-8'>
             This training exercise planner provides a great way to begin your
             road to feeling better. You have the flexibility to search & select
-            exercises that suit your preferences or opt for random ones. <br/>You can
-            also create your own exercises <a href='#create' className='text-yellow-400 text-semibold drop-shadow-md'>Here</a>. <br/> It's all
-            about keeping your workouts engaging and tailored to your needs
-            while you journey towards a healthier, more energized self. With
-            this adaptable approach, exercise becomes an enjoyable adventure,
-            and you're more likely to stick with it for the long term. Start
-            today and experience the uplifting benefits of a personalized
-            exercise routine.
+            exercises that suit your preferences or opt for random ones. <br />
+            You can also create your own exercises{' '}
+            <a
+              href='#create'
+              className='text-yellow-400 text-semibold drop-shadow-md'
+            >
+              Here
+            </a>
+            . <br /> It's all about keeping your workouts engaging and tailored
+            to your needs while you journey towards a healthier, more energized
+            self. With this adaptable approach, exercise becomes an enjoyable
+            adventure, and you're more likely to stick with it for the long
+            term. Start today and experience the uplifting benefits of a
+            personalized exercise routine.
           </p>
         </div>
       </div>

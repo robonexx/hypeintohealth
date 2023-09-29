@@ -11,6 +11,7 @@ const CreateExercise: FC = () => {
   });
   const [myExercises, setMyExercises] = useState<Exercise[]>([]);
   const [error, setError] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   // handle on change
   const handleOnChange = (
@@ -54,20 +55,27 @@ const CreateExercise: FC = () => {
       // Update local storage
       localStorage.setItem('myExercises', JSON.stringify(updatedMyExercise));
 
+      setMyExercises(updatedMyExercise);
+
       // Clear the form inputs
       setState({ name: '', description: '' });
     }
   };
 
   // Check if there are existing exercises in local storage with useEffect hook if no exercises we push a empty array to state.
+  // using a loaded state to update the dom on rerender
   useEffect(() => {
-    const storedMyExercises = localStorage.getItem('myExercises');
-    if (storedMyExercises) {
-      setMyExercises(JSON.parse(storedMyExercises));
-    } else {
-      setMyExercises([]);
+    if (!loaded) {
+      const storedMyExercises = localStorage.getItem('myExercises');
+      if (storedMyExercises) {
+        setMyExercises(JSON.parse(storedMyExercises));
+      } else {
+        setMyExercises([]);
+      }
+      // Set loaded to true to avoid infinite loop
+      setLoaded(true);
     }
-  }, []);
+  }, [loaded]);
 
   return (
     <main className='container mx-auto px-6 p-10 lg:px-40'>
@@ -104,11 +112,12 @@ const CreateExercise: FC = () => {
           </button>
         </form>
       </section>
-          <section>
-          <h2 className='mt-16 mb-4 py-2 bg-gradient-to-r from-gray-700 via-gray-900 to-black bg-clip-text text-transparent drop-shadow-md font-extrabold body-font font-black text-xl md:text-2xl lg:text-3xl'>
+      <section>
+        <h2 className='mt-16 mb-4 py-2 bg-gradient-to-r from-gray-700 via-gray-900 to-black bg-clip-text text-transparent drop-shadow-md font-extrabold body-font font-black text-xl md:text-2xl lg:text-3xl'>
           Your own exercises
         </h2>
-        {myExercises && myExercises.map((ex) => <ExerciseCard {...ex} />)}
+        {myExercises ?
+          myExercises.map((ex) => <ExerciseCard {...ex} key={ex.id} />) : <div>Loading...</div>}
       </section>
     </main>
   );
