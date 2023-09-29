@@ -39,4 +39,4 @@ fixed by adding a vercel.json file with the below directives
   "rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }
 
-This was fun and challenging. Or Tailwind was... (I Like to do my own styling in css or sass, also styled components, coming up in next project 🥳 )
+This was fun and challenging. Or Tailwind was... (I Like to do my own styling in css or sass, also styled components, coming up in a future project 🥳 )
