@@ -12,7 +12,7 @@ export default function Header() {
 
   return (
     <div className='flex items-center justify-between border-b border-gray-400 py-8'>
-      <nav>
+      <nav className='cursor-pointer'>
         <section className='flex lg:hidden mx-4'>
           <div
             className='space-y-2'
@@ -30,9 +30,7 @@ export default function Header() {
               <PiXCircleThin className='block h-8 w-8 text-zinc-800' />
             </div>
             <ul className='flex flex-col items-center justify-between min-h-96 transition-all duration-500'>
-              <a href='/' className='self-center text-4xl my-16'>
                 <Logo title='Hype Into Health' />
-              </a>
               {navData.map(({ title, path, id }) => (
                 <NavItem title={title} path={path} key={id} />
               ))}

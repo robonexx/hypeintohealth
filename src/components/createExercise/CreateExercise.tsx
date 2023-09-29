@@ -27,16 +27,16 @@ const CreateExercise: FC = () => {
       setError(true);
     } else {
       setError(false);
-      console.log(state.name, state.description)
+      console.log(state.name, state.description);
     }
   };
 
   return (
-    <main className='flex flex-col items-center bg-slate-400 text-black box-border lg:w-2/3 lg:mx-auto'>
+    <main className='container mx-auto px-6 p-10 lg:px-40'>
       <section>
-        <h1 className='mt-16 mb-4 py-2 bg-gradient-to-tr from-yellow-600 via-purple-800 to-orange-700 bg-clip-text text-transparent drop-shadow-xl font-extrabold body-font font-black text-2xl md:text-4xl'>
+        <h2 className='mt-16 mb-4 py-2 bg-gradient-to-r from-gray-700 via-gray-900 to-black bg-clip-text text-transparent drop-shadow-md font-extrabold body-font font-black text-xl md:text-2xl lg:text-3xl'>
           Create your own exercise
-        </h1>
+        </h2>
         <form
           onSubmit={handleSubmit}
           className='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'

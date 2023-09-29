@@ -10,13 +10,6 @@ import {
 } from '../../assets/data/ExerciseData';
 import ExerciseCard from '../exercisecard/ExerciseCard';
 
-// 1 create a list of all exercises
-// 2 make it possible to search in the exercises
-// 3 create a function so that the user can pick exercises to create their own list
-// 4 output the users own training list
-// add and remove exercise
-// remove the myList from localstorage and state
-
 const ExercisePlanner: React.FC = () => {
   /*  const [num, setNum] = useState(1); */
   const [myList, setMyList] = useState<Exercise[]>([]);
@@ -83,8 +76,9 @@ const ExercisePlanner: React.FC = () => {
           <p className='text-gray-600 mb-8'>
             This training exercise planner provides a great way to begin your
             road to feeling better. You have the flexibility to search & select
-            exercises that suit your preferences or opt for random ones. It's
-            all about keeping your workouts engaging and tailored to your needs
+            exercises that suit your preferences or opt for random ones. <br/>You can
+            also create your own exercises <a href='#create' className='text-yellow-400 text-semibold drop-shadow-md'>Here</a>. <br/> It's all
+            about keeping your workouts engaging and tailored to your needs
             while you journey towards a healthier, more energized self. With
             this adaptable approach, exercise becomes an enjoyable adventure,
             and you're more likely to stick with it for the long term. Start
@@ -99,12 +93,12 @@ const ExercisePlanner: React.FC = () => {
       </p>
       <section>
         <div className='w-full flex items-center justify-between'>
-          <h2 className='mt-16 mb-4 py-2 bg-gradient-to-r from-gray-700 via-gray-900 to-black bg-clip-text text-transparent drop-shadow-md font-extrabold body-font font-black text-2xl md:text-3xl lg:text-5xl'>
+          <h2 className='mt-16 mb-4 py-2 bg-gradient-to-r from-gray-700 via-gray-900 to-black bg-clip-text text-transparent drop-shadow-md font-extrabold body-font font-black text-xl md:text-2xl lg:text-3xl'>
             Selected exercises for your daily routine
           </h2>
           <button
             onClick={clearMyList}
-            className='w-1/4 mt-4 px-2 py-2 bg-red-500 text-white rounded grid place-content-center hover:bg-red-300 hover:text-zinc-700 transition-all duration-300'
+            className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mx-8 my-4 mt-16  w-1/4 md:w-32 grid place-content-center'
           >
             <PiTrashLight />
           </button>

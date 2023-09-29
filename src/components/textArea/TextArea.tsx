@@ -28,7 +28,7 @@ const TextArea: FC<TextProps> = ({
         {label}
       </label>
       <textarea
-        className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-current placeholder-[#667085]'
+        className='shadow appearance-none border rounded w-full h-72 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-current placeholder-[#667085]'
         id={label}
         value={value}
         name={name}
