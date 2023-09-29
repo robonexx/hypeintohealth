@@ -81,7 +81,7 @@ const ExerciseBanner: React.FC = () => {
             Here you can get a random exercise, you can choose from beginner to
             advanced level and then number of exercises. And it will spit out a
             nice exercise program for you to use today. What are you waiting for
-            Lets Go! 😍 If you want to plan your exercise and choose your own,
+            Lets Go! 😍 If you want to plan your exercise and choose your own, or create your own exercises,
             you can to that here -{' '}
             <a href='/planner' className='text-indigo-500'>
               Routine planner
