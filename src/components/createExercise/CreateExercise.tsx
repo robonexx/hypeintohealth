@@ -34,8 +34,9 @@ const CreateExercise: FC = () => {
       console.log(state.name, state.description);
 
       // Create a new exercise object
-      const newExercise: Exercise = {
-        id: Math.floor(Math.random() * 1000), // Use a better method to generate IDs in a real-world scenario
+        const newExercise: Exercise = {
+          // Use a better method to generate IDs in a real-world scenario lie a uuid generator
+        id: Math.floor(Math.random() * 1000), 
         name: state.name,
         description: state.description,
       };
