@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, FormEvent } from 'react';
+import React, { useState, ChangeEvent, FormEvent, useEffect } from 'react';
 import { getRandomExercises } from '../../utils/shuffleExercises';
 import {
   exercises,
@@ -13,9 +13,10 @@ const ExerciseSuggestion: React.FC = () => {
   const [number, setNumber] = useState<number | undefined>(undefined);
   const [randomList, setRandomList] = useState<Exercise[]>([]);
   const [selectedExercises, setSelectedExercises] = useState<Exercise[]>([]);
+  const [myExercises, setMyExercises] = useState<Exercise[]>([]);
 
   const handleButtonClick = (
-    buttonType: 'beginner' | 'intermediate' | 'advanced' | 'dumbbell'
+    buttonType: 'beginner' | 'intermediate' | 'advanced' | 'dumbbell' | 'myOwn'
   ) => {
     const newArray = getExerciseArray(buttonType);
     if (isSelected(buttonType)) {
@@ -26,6 +27,15 @@ const ExerciseSuggestion: React.FC = () => {
       setSelectedExercises((prevSelected) => [...prevSelected, ...newArray]);
     }
   };
+
+  useEffect(() => {
+    const storedMyExercises = localStorage.getItem('myExercises');
+    if (storedMyExercises) {
+      setMyExercises(JSON.parse(storedMyExercises));
+    } else {
+      setMyExercises([]);
+    }
+  }, []);
 
   // switch to check the button and add to exercise array
   const getExerciseArray = (buttonType: string): Exercise[] => {
@@ -38,6 +48,8 @@ const ExerciseSuggestion: React.FC = () => {
         return advancedExercises;
       case 'dumbbell':
         return dumbbellExercises;
+      case 'myOwn':
+        return myExercises;
       default:
         return [];
     }
@@ -118,6 +130,14 @@ const ExerciseSuggestion: React.FC = () => {
             onClick={() => handleButtonClick('dumbbell')}
           >
             Dumbbell
+          </button>
+          <button
+            className={`${
+              isSelected('myOwn') ? 'bg-green-400' : 'bg-blue-500'
+            } hover:bg-blue-700 text-white font-bold m-2 py-2 px-2 rounded w-3/5 md:w-1/3`}
+            onClick={() => handleButtonClick('myOwn')}
+          >
+            My-Own
           </button>
         </section>
         <input
