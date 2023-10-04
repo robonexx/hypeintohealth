@@ -39,4 +39,5 @@ fixed by adding a vercel.json file with the below directives
   "rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }
 
-This was fun and challenging. Or Tailwind was... (I Like to do my own styling in css or sass, also styled components, coming up in a future project 🥳 )
+Not sold on Tailwind or Bootstrapwas... 
+I Like css and sass so to do my own styling feels good, I also like styled components, coming up in a future project 🥳 
