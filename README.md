@@ -1,6 +1,5 @@
 ## Vite + React + TypeScript + Tailwind + React-router-dom + framer-motion + Vercel
 
-### Assingment at CME, course - Web and Mobile App development 
 
 # Hype in to healt - your first step to start exercising
 
@@ -19,9 +18,6 @@ You have the possiblity to add your own exercises saved on local storage.
 -   Framer-motion
 -   LocalStorage
 
-Task was to use hooks
--   UseState 
--   UseEffect
 
 
 ## What I Learned?
